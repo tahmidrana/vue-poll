@@ -16,6 +16,7 @@
 <script>
 import axios from 'axios'
 import moment from 'moment'
+import config from '../config'
 
 export default {
   name: 'Poll',
@@ -31,7 +32,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://localhost:3000/api/polls/' + this.$route.params.id)
+    axios.get(config.API_URL + 'polls/' + this.$route.params.id)
       .then(res => {
         this.loading = false
         this.poll = res.data

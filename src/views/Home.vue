@@ -12,6 +12,7 @@
 // @ is an alias to /src
 import PollTile from '@/components/PollTile.vue'
 import axios from 'axios'
+import config from '../config'
 
 export default {
   name: 'home',
@@ -30,7 +31,7 @@ export default {
     } */
   },
   mounted () {
-    axios.get('http://localhost:3000/api/polls')
+    axios.get(config.API_URL + 'polls')
       .then((res) => {
         this.loading = false
         this.polls = res.data
